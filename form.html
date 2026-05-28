@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acme Analytics — Request a Demo</title>
+
+  <!-- ============================================================== -->
+  <!-- GTM HEAD SNIPPET GOES HERE                                     -->
+  <!-- Paste your <script>(function(w,d,s,l,i){...})</script> below   -->
+  <!-- ============================================================== -->
+
+
+  <!-- ============================================================== -->
+  <!-- END GTM HEAD SNIPPET                                           -->
+  <!-- ============================================================== -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #f7f8fa;
+      line-height: 1.6;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo { font-weight: 700; font-size: 18px; color: #2563eb; }
+    nav a {
+      color: #4b5563;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+    }
+    nav a:hover { color: #2563eb; }
+    .container {
+      max-width: 560px;
+      margin: 48px auto;
+      padding: 0 24px;
+    }
+    h1 { font-size: 32px; margin: 0 0 8px; letter-spacing: -0.5px; }
+    .subtitle { color: #4b5563; margin-bottom: 32px; }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .field { margin-bottom: 20px; }
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+    .required { color: #dc2626; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    .btn-submit {
+      width: 100%;
+      padding: 12px 24px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .btn-submit:hover { background: #1d4ed8; }
+    .btn-submit:disabled { background: #93c5fd; cursor: not-allowed; }
+    .error {
+      color: #dc2626;
+      font-size: 13px;
+      margin-top: 4px;
+      display: none;
+    }
+    .error.show { display: block; }
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================== -->
+  <!-- GTM BODY (noscript) SNIPPET GOES HERE                          -->
+  <!-- ============================================================== -->
+
+
+  <!-- ============================================================== -->
+  <!-- END GTM BODY SNIPPET                                           -->
+  <!-- ============================================================== -->
+
+  <header>
+    <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Acme Analytics</a></div>
+    <nav>
+      <a href="index.html" data-cta="nav_dashboard">Dashboard</a>
+      <a href="form.html" data-cta="nav_contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Request a Demo</h1>
+    <p class="subtitle">Tell us a bit about yourself and we'll be in touch within one business day.</p>
+
+    <div class="card">
+      <form id="demo-form" novalidate>
+        <div class="field">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required />
+          <div class="error" id="error-name">Please enter your name.</div>
+        </div>
+
+        <div class="field">
+          <label for="email">Work Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required />
+          <div class="error" id="error-email">Please enter a valid email.</div>
+        </div>
+
+        <div class="field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" />
+        </div>
+
+        <div class="field">
+          <label for="company_size">Company Size</label>
+          <select id="company_size" name="company_size">
+            <option value="">Select…</option>
+            <option value="1-10">1–10</option>
+            <option value="11-50">11–50</option>
+            <option value="51-200">51–200</option>
+            <option value="201-1000">201–1000</option>
+            <option value="1000+">1000+</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">What are you hoping to achieve?</label>
+          <textarea id="message" name="message" placeholder="Optional — but helpful!"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">Send Request</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Acme Analytics — Demo site for GA4 + GTM practice.
+  </footer>
+
+  <script>
+    /* ===================================================
+       dataLayer init + form tracking
+       =================================================== */
+    window.dataLayer = window.dataLayer || [];
+
+    // Page view
+    window.dataLayer.push({
+      event: 'page_view_custom',
+      page_name: 'demo_form',
+      page_type: 'lead_form'
+    });
+
+    var form = document.getElementById('demo-form');
+    var fields = form.querySelectorAll('input, select, textarea');
+    var formStarted = false;
+    var completedFields = {};
+
+    /* ---- form_start: fires on first interaction with any field ---- */
+    fields.forEach(function (field) {
+      field.addEventListener('focus', function () {
+        if (!formStarted) {
+          formStarted = true;
+          window.dataLayer.push({
+            event: 'form_start',
+            form_name: 'demo_request',
+            form_id: 'demo-form'
+          });
+        }
+      });
+
+      /* ---- field_complete: when user leaves a field with a value ---- */
+      field.addEventListener('blur', function () {
+        var value = field.value.trim();
+        if (value && !completedFields[field.name]) {
+          completedFields[field.name] = true;
+          window.dataLayer.push({
+            event: 'form_field_complete',
+            form_name: 'demo_request',
+            field_name: field.name,
+            field_type: field.type || field.tagName.toLowerCase()
+          });
+        }
+      });
+    });
+
+    /* ---- Scroll depth ---- */
+    var scrollFired = {};
+    window.addEventListener('scroll', function () {
+      var scrolled = window.scrollY + window.innerHeight;
+      var docHeight = document.documentElement.scrollHeight;
+      var pct = Math.round((scrolled / docHeight) * 100);
+      [25, 50, 75, 100].forEach(function (t) {
+        if (pct >= t && !scrollFired[t]) {
+          scrollFired[t] = true;
+          window.dataLayer.push({
+            event: 'scroll_depth',
+            scroll_percentage: t,
+            page_name: 'demo_form'
+          });
+        }
+      });
+    });
+
+    /* ---- form_submit: validate + push event + redirect to thanks ---- */
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = document.getElementById('name');
+      var email = document.getElementById('email');
+      var nameErr = document.getElementById('error-name');
+      var emailErr = document.getElementById('error-email');
+      var valid = true;
+
+      nameErr.classList.remove('show');
+      emailErr.classList.remove('show');
+
+      if (!name.value.trim()) {
+        nameErr.classList.add('show');
+        valid = false;
+      }
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value.trim())) {
+        emailErr.classList.add('show');
+        valid = false;
+      }
+
+      if (!valid) {
+        window.dataLayer.push({
+          event: 'form_submit_error',
+          form_name: 'demo_request',
+          error_fields: [
+            !name.value.trim() ? 'name' : null,
+            !emailRegex.test(email.value.trim()) ? 'email' : null
+          ].filter(Boolean)
+        });
+        return;
+      }
+
+      // Capture form data
+      var formData = {
+        name: name.value.trim(),
+        email: email.value.trim(),
+        company: document.getElementById('company').value.trim(),
+        company_size: document.getElementById('company_size').value,
+        message_provided: !!document.getElementById('message').value.trim()
+      };
+
+      // form_submit event
+      window.dataLayer.push({
+        event: 'form_submit',
+        form_name: 'demo_request',
+        form_id: 'demo-form',
+        form_destination: 'thanks.html',
+        company_size: formData.company_size || 'not_provided',
+        has_message: formData.message_provided
+      });
+
+      // Persist a few values for the thanks page
+      try {
+        sessionStorage.setItem('acme_lead_email', formData.email);
+        sessionStorage.setItem('acme_lead_company_size', formData.company_size || '');
+      } catch (err) { /* ignore */ }
+
+      // Brief pause so the tag has time to fire before navigation
+      document.getElementById('submit-btn').disabled = true;
+      document.getElementById('submit-btn').innerText = 'Sending…';
+      setTimeout(function () {
+        window.location.href = 'thanks.html';
+      }, 400);
+    });
+  </script>
+</body>
+</html>
